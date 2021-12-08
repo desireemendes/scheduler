@@ -1,3 +1,5 @@
+import "components/InterviewerListItem.scss";
+
 export default function setInterviewer () {
   return (
     <li className="interviewers__item">
