@@ -1,3 +1,4 @@
+import React from "react"
 export default function empty() {
   return (
 <main className="appointment__add">

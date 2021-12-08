@@ -14,6 +14,7 @@ import InterviewerList from "components/InterviewerList";
 import Appointment from "components/Appointment/index.js";
 import Header from "components/Appointment/header.js"
 import Empty from "components/Appointment/empty.js"
+import Show from "components/Appointment/show"
 
 storiesOf("Button", module)
   .addParameters({
