@@ -1,4 +1,8 @@
-<main className="appointment__card appointment__card--show">
+import React from "react";
+
+export default function Empty() {
+  return (
+    <main className="appointment__card appointment__card--show">
   <section className="appointment__card-left">
     <h2 className="text--regular">Lydia Miller-Jones</h2>
     <section className="interviewer">
@@ -12,12 +16,16 @@
         className="appointment__actions-button"
         src="images/edit.png"
         alt="Edit"
+        onClick={this.props.onEdit}
       />
       <img
         className="appointment__actions-button"
         src="images/trash.png"
         alt="Delete"
+        onClick={this.props.onDelete}
       />
     </section>
   </section>
 </main>
+  )
+}
