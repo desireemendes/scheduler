@@ -11,7 +11,7 @@ import DayListItem from "components/DayListItem";
 import DayList from "components/DayList";
 import InterviewerListItem from "components/InterviewerListItem";
 import InterviewerList from "components/InterviewerList";
-import Appointment from "components/Appointment";
+import Appointment from "components/Appointment/index.js";
 import Header from "components/Appointment/header.js"
 import Empty from "components/Appointment/empty.js"
 import Show from "components/Appointment/show"
