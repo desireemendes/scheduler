@@ -1,12 +1,12 @@
 import React from "react"
-export default function empty() {
+export default function empty(props) {
   return (
 <main className="appointment__add">
   <img
     className="appointment__add-button"
     src="images/add.png"
     alt="Add"
-    onClick={this.props.onAdd}
+    onClick={props.onAdd}
   />
 </main>
   )
