@@ -3,6 +3,7 @@ import Button from "components/Button";
 import InterviewerList from "components/InterviewerList";
 import { useState } from 'react';
 
+
 export default function Form(props) {
 const [student, setStudent] = useState(props.student || "");
 const [interviewer, setInterviewer] = useState(props.interviewer || null);
@@ -26,12 +27,13 @@ const cancel = () => {
         name={props.student}
         type="text"
         placeholder="Enter Student Name"
+        value={student}
         onChange={(event) => setStudent(event.target.value)}
       />
     </form>
     <InterviewerList 
       interviewers={props.interviewers}
-      value={props.interviewer}
+      value={interviewer}
       onChange={props.setInterviewer}
     />
   </section>
