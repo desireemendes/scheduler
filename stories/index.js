@@ -16,7 +16,7 @@ import Header from "components/Appointment/header.js"
 import Empty from "components/Appointment/empty.js"
 import Show from "components/Appointment/show.js"
 import Confirm from "components/Appointment/confirm.js"
-import status from "components/Appointment/status.js"
+import Status from "components/Appointment/status.js"
 
 storiesOf("Button", module)
   .addParameters({
