@@ -7,6 +7,7 @@ import Appointment from "components/Appointment";
 import { useEffect } from "react";
 import axios from "axios";
 import { getAppointmentsForDay } from "helpers/selectors";
+import { getInterview } from "helpers/selectors";
 
 // const appointments = [
 //   {
@@ -76,7 +77,7 @@ export default function Application(props) {
     interviewers: {}
   });
   // const dailyAppointments = getAppointmentsForDay(state, state.day)
-  const appointments = getAppointmentsForDay(state, day);
+  const appointments = getAppointmentsForDay(state, state.day);
 
 const schedule = appointments.map((appointment) => {
   const interview = getInterview(state, appointment.interview);
