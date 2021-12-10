@@ -72,9 +72,24 @@ export default function Application(props) {
     day: "Monday",
     days: [],
     appointments: {
-    }
+    },
+    interviewers: {}
   });
-  const dailyAppointments = getAppointmentsForDay(state, state.day)
+  // const dailyAppointments = getAppointmentsForDay(state, state.day)
+  const appointments = getAppointmentsForDay(state, day);
+
+const schedule = appointments.map((appointment) => {
+  const interview = getInterview(state, appointment.interview);
+
+  return (
+    <Appointment
+      key={appointment.id}
+      id={appointment.id}
+      time={appointment.time}
+      interview={interview}
+    />
+  );
+});
   useEffect(() => {
     // axios.get('http://localhost:8001/api/days')
     // .then((response) => {
@@ -118,12 +133,12 @@ export default function Application(props) {
 />
       </section>
       <section className="schedule">
-      {dailyAppointments.map((appointment) => 
+      {/* {dailyAppointments.map((appointment) => 
           <Appointment
             key={appointment.id}
             {...appointment}
           />
-        )}
+        )} */}
         <Appointment key="last" time="5pm" />
       </section>
     </main>
