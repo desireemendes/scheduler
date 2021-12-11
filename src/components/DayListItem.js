@@ -9,14 +9,14 @@ export default function DayListItem(props) {
     {'day-list__item--full': props.spots === 0},
   )
   // const handleClick = () => props.onChange(props.name)
-  const formatSpots = (spotsRemaining) => {
-    if (!spotsRemaining) {
+  const formatSpots = (spots) => {
+    if (!spots) {
       return `no spots remaining`;
     }
-    if (spotsRemaining === 1) {
+    if (spots === 1) {
       return `1 spot remaining`;
     }
-    return `${spotsRemaining} spots remaining`;
+    return `${props.spots} spots remaining`;
   }
 
   return (
