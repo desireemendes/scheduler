@@ -11,7 +11,22 @@ import { getInterview } from "helpers/selectors";
 import { getInterviewersForDay } from "helpers/selectors";
 
 
+
 export default function Application(props) {
+  
+  function bookInterview(id, interview) {
+    const appointment = {
+      ...state.appointments[id],
+      interview: { ...interview }
+    };;
+  }
+
+  function save(name, interviewer) {
+    const interview = {
+      student: name,
+      interviewer
+    };
+  }
   
   // const setDays = (days) => setState(prev => ({ ...prev, days }));
   const [state, setState] = useState({
