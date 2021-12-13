@@ -28,7 +28,8 @@ const onCancel = () => back();
     interviewer={props.interview.interviewer} /> : <Empty />} */}
         {mode === 'EMPTY' && <Empty onAdd={onAdd} />}
       {mode === 'SHOW' && <Show interview={props.interview} /> }
-      {mode === 'CREATE' && <Form onCancel={onCancel}/>}
+      {mode === 'CREATE' && <Form onCancel={onCancel} interviewers={props.interviewers} />}
+
   </article>
   )
 }
