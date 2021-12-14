@@ -149,12 +149,14 @@ storiesOf("Button", module)
   .add("Appointment with Time", () => <Appointment time="12pm" />)
   .add("Header", () => <Header time="12pm" />)
   .add("Empty", () => <Empty onAdd={action("onAdd")}/>)
-  .add("Show", () =>
-    <Show 
-      interview={{student:'Lydia Miller-Jones', interviewer:interviewers[0]}} 
-      onEdit={action("onEdit")} 
-      onDelete={action("onDelete")} 
-    />)
+  .add("Show", () => (
+    <Show
+      student="Lydia Miller-Jones"
+      interviewer={interviewer}
+      onEdit={action("onEdit")}
+      onDelete={action("onDelete")}
+    />
+  ))
   .add("Confirm", () => <Confirm message="Delete the appointment?" onCancel={action("onCancel")} onConfirm={action("onConfirm")}/>)
   .add("Status", () => <Status message="Deleting"/>)
   .add("Error", () => <Error message="Could not delete appointment." onClose={action("onClose")}/>)
