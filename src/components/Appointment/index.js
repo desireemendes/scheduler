@@ -47,7 +47,7 @@ export default function Appointment(props) {
     student={props.interview.student}
     interviewer={props.interview.interviewer} /> : <Empty />} */}
       {mode === "EMPTY" && <Empty onAdd={onAdd} />}
-      {mode === "SHOW" && (
+      {mode === "SHOW" && props.interview && (
         <Show
           interview={props.interview}
           interviewer={props.interview.interviewer}
