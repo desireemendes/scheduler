@@ -4,6 +4,7 @@ import InterviewerListItem from "./InterviewerListItem";
 
 export default function InterviewerList(props) {
   const interviewers = props.interviewers.map((interviewer) => {
+    if(!interviewer) return < >No interviewers available.</>;
     return (
       <InterviewerListItem
         key={interviewer.id}

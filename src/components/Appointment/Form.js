@@ -7,6 +7,7 @@ import { useState } from 'react';
 export default function Form(props) {
 const [student, setStudent] = useState(props.student || "");
 const [interviewer, setInterviewer] = useState(props.interviewer || null);
+const [error, setError] = useState('');
 
 const reset = () => {
   setStudent("");
@@ -16,6 +17,18 @@ const reset = () => {
 const cancel = () => {
   reset();
   props.onCancel();
+}
+
+const validation = () => {
+  if (student === '') {
+    setError("Name cannot be left blank.");
+    return;
+  }
+  if (interviewer === '') {
+    setError("No interviewer selected.");
+    return;
+  }
+  props.onSave(student,interviewer);
 }
 
 
@@ -41,7 +54,7 @@ const cancel = () => {
   <section className="appointment__card-right">
     <section className="appointment__actions">
       <Button danger onClick={cancel}>Cancel</Button>
-      <Button confirm onClick={() => props.onSave(student, interviewer)}>Save</Button>
+      <Button confirm onClick={validation}>Save</Button>
     </section>
   </section>
 </main>
