@@ -6,7 +6,7 @@ export default function useApplicationData() {
     day: "Monday",
     days: [],
     appointments: {},
-    // interviewers: {},
+    interviewers: {},
   });
 
   const setDay = (day) => setState({ ...state, day });
@@ -23,6 +23,26 @@ export default function useApplicationData() {
     })
     .catch(err => console.log(err))
   }, [])
+
+  const updateDays = (state, appointments) => {
+    // Get the day object and its position in the state.days array
+    const index = state.days.findIndex(d => d.name === state.day);
+    const dayObj = state.days[index];
+
+    // Count how many appointments in the day objects are null
+    let spots = 0;
+    for (const id of dayObj.appointments) {
+      if (!(appointments[id].interview)) {
+        spots++;
+      }
+    }
+
+    // Copy and update with the spots info
+    const newDays = [...state.days];
+    newDays[index] = {...dayObj, spots};
+
+    return newDays;
+  }
 
   function bookInterview(id, interview) {
     console.log(id, interview);
@@ -48,8 +68,9 @@ export default function useApplicationData() {
       ...state.appointments,
       [id]: appointment
     };
+    const days = updateDays(state, appointments)
     return axios.delete(`/api/appointments/${id}`).then(() => {
-      setState({...state, appointments});
+      setState({...state, appointments, days});
     })
   }
 
