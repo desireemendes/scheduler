@@ -19,12 +19,12 @@ const cancel = () => {
   props.onCancel();
 }
 
-const validation = () => {
+const validate = () => {
   if (student === '') {
-    setError("Name cannot be left blank.");
+    setError("Student name cannot be blank");
     return;
   }
-  if (interviewer === '') {
+  if (interviewer === null) {
     setError("No interviewer selected.");
     return;
   }
@@ -46,6 +46,7 @@ const validation = () => {
         data-testid="student-name-input"
       />
     </form>
+    <section className="appointment__validation">{error}</section>
     <InterviewerList 
       interviewers={props.interviewers}
       value={interviewer}
@@ -55,7 +56,7 @@ const validation = () => {
   <section className="appointment__card-right">
     <section className="appointment__actions">
       <Button danger onClick={cancel}>Cancel</Button>
-      <Button confirm onClick={validation}>Save</Button>
+      <Button confirm onClick={validate}>Save</Button>
     </section>
   </section>
 </main>
