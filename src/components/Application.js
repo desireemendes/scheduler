@@ -2,9 +2,7 @@ import React from "react";
 import "components/Application.scss";
 import DayList from "./DayList";
 import Appointment from "components/Appointment";
-import { getAppointmentsForDay } from "helpers/selectors";
-import { getInterview } from "helpers/selectors";
-import { getInterviewersForDay } from "helpers/selectors";
+import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "helpers/selectors";
 import useApplicationData from "hooks/useApplicationData";
 
 

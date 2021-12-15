@@ -1,4 +1,4 @@
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 export default function useApplicationData() {
@@ -9,39 +9,11 @@ export default function useApplicationData() {
     interviewers: {},
   });
 
-  const setDay = (day) => setState({ ...state, day });
-  useEffect(() => {
-    Promise.all([
-      axios.get("/api/days"),
-      axios.get("/api/appointments"),
-      axios.get("/api/interviewers"),
-    ]).then( all => {
-      setState(prev => ({ ...prev, 
-        days: all[0].data, 
-        appointments: all[1].data, 
-        interviewers: all[2].data}))
-    })
-    .catch(err => console.log(err))
-  }, [])
-
-  const updateDays = (state, appointments) => {
-    // Get the day object and its position in the state.days array
-    const index = state.days.findIndex(d => d.name === state.day);
-    const dayObj = state.days[index];
-
-    // Count how many appointments in the day objects are null
-    let spots = 0;
-    for (const id of dayObj.appointments) {
-      if (!(appointments[id].interview)) {
-        spots++;
-      }
-    }
-
-    // Copy and update with the spots info
-    const newDays = [...state.days];
-    newDays[index] = {...dayObj, spots};
-
-    return newDays;
+  const fetchFreeSpots = (state, appointments) => {
+    const appointmentIds = state.days.filter(day => day.name === state.day);
+    const todaysAppointments = appointmentIds[0].appointments;
+    const emptyAppointments = todaysAppointments.filter(app => !appointments[app].interview).length;
+    return emptyAppointments;
   }
 
   function bookInterview(id, interview) {
@@ -54,8 +26,24 @@ export default function useApplicationData() {
       ...state.appointments,
       [id]: appointment
     };
-    return axios.put(`/api/appointments/${id}`, appointment).then(() => {
-      setState({...state, appointments});
+   
+   
+      const days = [
+        ...state.days,
+      ]
+      const dayIndex = state.days.findIndex((day) => 
+        day.appointments.includes(id)
+      )
+      const spots = fetchFreeSpots(state, appointments)
+      
+      const newDay = {
+        ...days[dayIndex], spots
+      }
+      days[dayIndex] = newDay
+      // return days array
+      
+         return axios.put(`/api/appointments/${id}`, appointment).then(() => {
+      setState(prev => ({...prev, appointments, days}));
     })
   }
 
@@ -68,16 +56,48 @@ export default function useApplicationData() {
       ...state.appointments,
       [id]: appointment
     };
-    const days = updateDays(state, appointments)
-    return axios.delete(`/api/appointments/${id}`).then(() => {
-      setState({...state, appointments, days});
-    })
+
+
+  const days = [
+    ...state.days,
+  ]
+  const dayIndex = state.days.findIndex((day) => 
+    day.appointments.includes(id)
+  )
+  const spots = fetchFreeSpots(state, appointments)
+  
+  const newDay = {
+    ...days[dayIndex], spots
   }
+  days[dayIndex] = newDay
+
+  return axios.delete(`/api/appointments/${id}`).then(() => {
+    setState(prev => ({...prev, appointments, days}));
+  })
+}
+
+const setDay = (day) => setState({ ...state, day });
+useEffect(() => {
+  Promise.all([
+    axios.get("/api/days"),
+    axios.get("/api/appointments"),
+    axios.get("/api/interviewers"),
+  ])
+    .then((all) => {
+      setState((prev) => ({
+        ...prev,
+        days: all[0].data,
+        appointments: all[1].data,
+        interviewers: all[2].data,
+      }));
+    })
+    .catch((err) => console.log(err));
+}, []);
 
   return {
     state,
     setDay,
     bookInterview,
-    cancelInterview
-  }
+    cancelInterview,
+  };
 }
