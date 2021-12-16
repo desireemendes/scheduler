@@ -1,21 +1,19 @@
 # Interview Scheduler
 Interview Scheduler is a single page React application which allows users to book, cancel, and edit interviewers. This is combined with the scheduler-api and PostgreSQL database.
 
-## Screenshots 
-### Users can book interviews
-!["Booking interviews"] (https://github.com/desireemendes/scheduler/blob/master/docs/bookinterview.gif?raw=true)
+# Screenshots 
+## Users can book interviews
+!["Booking interviews"] (https://github.com/desireemendes/scheduler/blob/master/docs/editinterview.gif?raw=true)
 
-### Users can delete interviews
+## Users can delete interviews
 !["Deleting interviews"] (https://github.com/desireemendes/scheduler/blob/master/docs/deleteinterview.gif?raw=true)
 
-### Users can edit interviews
-!["Editing interviews"] (https://github.com/desireemendes/scheduler/blob/master/docs/editinterview.gif?raw=true)
 
-## Setup
+# Setup
 
 Install dependencies with `npm install`.
 
-## Dependencies
+# Dependencies
 - Axios
 - React
 - Classnames
@@ -24,19 +22,19 @@ Install dependencies with `npm install`.
 - Testing Library
 
 
-## Running Webpack Development Server
+# Running Webpack Development Server
 
 ```sh
 npm start
 ```
 
-## Running Jest Test Framework
+# Running Jest Test Framework
 
 ```sh
 npm test
 ```
 
-## Running Storybook Visual Testbed
+# Running Storybook Visual Testbed
 
 ```sh
 npm run storybook
