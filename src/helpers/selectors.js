@@ -1,3 +1,4 @@
+// Finds obj in state.days array that matches name of day, loops through appointments and returns value
 export function getAppointmentsForDay(state, day) {
   const filterDay = state.days.filter(match => match.name === day)[0];
   if (!state.days.length || !filterDay) {
@@ -7,6 +8,7 @@ export function getAppointmentsForDay(state, day) {
   }
 }
 
+// Gets student and interviewer
 export function getInterview(state, interview) {
   if (!interview) {
     return null;

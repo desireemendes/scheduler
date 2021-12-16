@@ -20,8 +20,3 @@ export default function InterviewerListItem(props) {
   );
 }
 
-//1. replace hardcoded values with props
-// interviewer props = id, name, avatar
-//2. add event listener to the li, each item should be clickable and setInterviewer function should run,
-//taking interview id as a parameter
-//3. interviewers__item--selected should only be applied if interviewer is selected
