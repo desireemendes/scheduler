@@ -2,6 +2,14 @@
 Interview Scheduler is a single page React application which allows users to book, cancel, and edit interviewers. This is combined with the scheduler-api and PostgreSQL database.
 
 ## Screenshots 
+### Users can book interviews
+!["Booking interviews"] (https://github.com/desireemendes/scheduler/blob/master/docs/bookinterview.gif?raw=true)
+
+### Users can delete interviews
+!["Deleting interviews"] (https://github.com/desireemendes/scheduler/blob/master/docs/deleteinterview.gif?raw=true)
+
+### Users can edit interviews
+!["Editing interviews"] (https://github.com/desireemendes/scheduler/blob/master/docs/editinterview.gif?raw=true)
 
 ## Setup
 
