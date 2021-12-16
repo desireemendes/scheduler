@@ -77,7 +77,7 @@ export default function Appointment(props) {
           onConfirm={cancelInterview}
         />
       )}
-      
+
       {mode === EDIT && (
         <Form
           student={props.interview.student}
