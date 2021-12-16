@@ -3,10 +3,10 @@ Interview Scheduler is a single page React application which allows users to boo
 
 # Screenshots 
 ## Users can book interviews
-!["Booking interviews"] (https://github.com/desireemendes/scheduler/blob/master/docs/editinterview.gif?raw=true)
+!["Booking interviews"] (https://github.com/desireemendes/scheduler/blob/master/docs/editinterview.gif)
 
 ## Users can delete interviews
-!["Deleting interviews"] (https://github.com/desireemendes/scheduler/blob/master/docs/deleteinterview.gif?raw=true)
+!["Deleting interviews"] (https://github.com/desireemendes/scheduler/blob/master/docs/deleteinterview.gif)
 
 
 # Setup
