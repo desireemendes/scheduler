@@ -1,8 +1,20 @@
 # Interview Scheduler
+Interview Scheduler is a single page React application which allows users to book, cancel, and edit interviewers. This is combined with the scheduler-api and PostgreSQL database.
+
+## Screenshots 
 
 ## Setup
 
 Install dependencies with `npm install`.
+
+## Dependencies
+- Axios
+- React
+- Classnames
+- Normalize
+- Storybook
+- Testing Library
+
 
 ## Running Webpack Development Server
 
