@@ -15,6 +15,7 @@ This project has been tested using Jest, Storybook, and Cypress.
 ## Setup
 
 Install dependencies with `npm install`.
+Instructions for the scheduler-api can be found here: https://github.com/lighthouse-labs/scheduler-api
 
 ## Dependencies
 ```sh
