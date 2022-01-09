@@ -88,7 +88,6 @@ export default function useApplicationData() {
           interviewers: all[2].data,
         }));
       })
-      .catch((err) => console.log(err));
   }, []);
 
   return {
